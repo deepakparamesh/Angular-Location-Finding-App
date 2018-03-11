@@ -31,10 +31,10 @@ export class RestaurantMapComponent implements OnInit {
     
     this.restaurants = this.restaurantService.getLatLan();
     var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i=0; i<this.restaurants.length; i++){
 
-    for (var i=0; i<this.restaurants.length; i++){
-
-      var marker = new google.maps.Marker({
+       marker = new google.maps.Marker({
         position: new google.maps.LatLng(Number(this.restaurants[i].latitude), Number(this.restaurants[i].longitude)),
         map: map,
         title: this.restaurants[i].name,
@@ -42,6 +42,14 @@ export class RestaurantMapComponent implements OnInit {
       
       //place marker in map
       marker.setMap(this.map)
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i){
+        return function(){
+          infowindow.setContent(this.restaurants[i].name);
+          infowindow.open(map, marker)
+        }
+      }) (marker, i));
+
     }
   }
 
