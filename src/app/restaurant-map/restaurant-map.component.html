@@ -1,0 +1,56 @@
+<section id="restaurant-section" class="py-3">
+    <div class="container">
+
+      <div>
+        <h3 class="text-center">Showing Restaurants in Malta</h3>
+      </div>
+      
+      <div class="row pt-2">
+
+        <div class="col-lg-3">
+          <div class="card">
+            <h5 class="card-header">Restaurant Details</h5>
+            <div class="card-body">
+              <h5 class="card-title">Restaurant Name</h5>
+              <p>address</p>
+              <p>telephone</p>
+              <p>website</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-9">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" id="home-tab" data-toggle="tab" routerLink="/restaurant"  role="tab" aria-controls="list" aria-selected="false">List View</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" id="map-tab" data-toggle="tab" routerLink="/restaurantmap" role="tab" aria-controls="map" aria-selected="true">Map View</a>              
+            </li>
+          </ul>
+
+          <div class="tab-content" id="myTabContent">
+            
+            <div class="tab-pane fade" id="list-tab" role="tabpanel" aria-labelledby="list-tab">
+               
+            </div>
+            
+            <div class="tab-pane fade show active " id="map-tab" role="tabpanel" aria-labelledby="map-tab">
+              
+              <!-- <div class="pt-3">
+                <agm-map [latitude]="lat" [longitude]="lng">
+                  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+              </div> -->
+
+              
+              <div #gmap style="width:100%;height:400px"></div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+</section>

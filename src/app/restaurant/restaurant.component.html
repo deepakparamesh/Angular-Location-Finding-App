@@ -1,0 +1,63 @@
+<section id="restaurant-section" class="py-3">
+    <div class="container">
+
+      <div>
+        <h3 class="text-center">Showing Restaurants in Malta</h3>
+      </div>
+      
+      <div class="row pt-2">
+
+        <div class="col-lg-3">
+          <div class="card">
+              <h5 class="card-header">Restaurant Details</h5>
+              <div class="card-body">
+                <h5 class="card-title">{{selectedRestaurant.name}}</h5>
+                <p>{{selectedRestaurant.address}}</p>
+                <p>{{selectedRestaurant.telephone}}</p>
+                <p>{{selectedRestaurant.website}}</p>
+              </div>
+            </div>
+        </div>
+
+        <div class=" col-lg-9">
+
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="list-tab" data-toggle="tab" routerLink="/restaurant"  role="tab" aria-controls="home" aria-selected="true">List View</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="map-tab" data-toggle="tab" routerLink="/restaurantmap" role="tab" aria-controls="profile" aria-selected="false">Map View</a>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Telephone</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let restaurant of restaurants" (click)="onSelect(restaurant)">
+                        <td>{{restaurant.name}}</td>
+                        <td>{{restaurant.address}}</td>
+                        <td>{{restaurant.telephone}}</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <app-restaurant-map></app-restaurant-map>
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+</section>
