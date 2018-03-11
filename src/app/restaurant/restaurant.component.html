@@ -7,23 +7,7 @@
       
       <div class="row pt-2">
 
-        <div class="col-lg-3">
-          <div class="card">
-              <div class="card-header">
-                  <h5>Restaurant Details</h5>
-                  <small>Click on the list know the Details</small>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">{{selectedRestaurant.name}}</h5>
-                <p>{{selectedRestaurant.address}}</p>
-                <p>{{selectedRestaurant.telephone}}</p>
-                <p>{{selectedRestaurant.website}}</p>
-              </div>
-            </div>
-        </div>
-
         <div class=" col-lg-9">
-
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="list-tab" data-toggle="tab" routerLink="/restaurant"  role="tab" aria-controls="home" aria-selected="true">List View</a>
@@ -32,7 +16,6 @@
               <a class="nav-link" id="map-tab" data-toggle="tab" routerLink="/restaurantmap" role="tab" aria-controls="profile" aria-selected="false">Map View</a>
             </li>
           </ul>
-
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <table class="table table-responsive" style="max-height:300px">
@@ -51,15 +34,33 @@
                       </tr>
                     </tbody>
                 </table>
-            </div>
-            
+            </div>  
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <app-restaurant-map></app-restaurant-map>
             </div>
-            
           </div>
-          
         </div>
+
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Restaurant Details</h5>
+                    <small>Click on the list know the Details</small>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{selectedRestaurant.name}}</h5>
+
+                    <div class="row">
+                      
+                    </div>
+
+                  <p><i class="fa fa-map-marker"></i> &nbsp;{{selectedRestaurant.address}}</p>
+                  <p><i class="fa fa-phone"></i> &nbsp; {{selectedRestaurant.telephone}}</p>
+                  <p><i class="fa fa-info-circle"></i>&nbsp;{{selectedRestaurant.website}}</p>
+                </div>
+              </div>
+        </div>
+
       </div>
 
     </div>

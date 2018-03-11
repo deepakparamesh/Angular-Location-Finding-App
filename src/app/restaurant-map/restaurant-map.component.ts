@@ -28,34 +28,21 @@ export class RestaurantMapComponent implements OnInit {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.gmapElement.nativeElement,mapProp);
+    
+    this.restaurants = this.restaurantService.getLatLan();
+    var infowindow = new google.maps.InfoWindow();
 
-     this.restaurants = this.restaurantService.getLatLan();
+    for (var i=0; i<this.restaurants.length; i++){
 
-   
-   
-    for (var i=0;i<this.restaurants.length;i++){
-      let latLang = { lat: Number(this.restaurants[i].latitude), lng: Number(this.restaurants[i].longitude)};
-
-      let marker = new google.maps.Marker({
-        position: latLang,
-        title: this.restaurants[i].name 
-    })
-  
-      // place marker in map
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(Number(this.restaurants[i].latitude), Number(this.restaurants[i].longitude)),
+        map: map,
+        title: this.restaurants[i].name,
+      });
+      
+      //place marker in map
       marker.setMap(this.map)
     }
-
-    // for(let restaurant in this.restaurants){
-    //   let latLang = { lat: Number(restaurant.latitude), lng: Number(restaurant.longitude)};
-
-    //   let marker = new google.maps.Marker({
-    //     position: latLang
-    //     // title: location.locationName
-    // })
-  
-    //   // place marker in map
-    //   marker.setMap(map)
-    // }  
   }
 
 
