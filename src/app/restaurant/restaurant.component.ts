@@ -28,6 +28,8 @@ export class RestaurantComponent implements OnInit {
         .subscribe(restaurant => this.restaurants = restaurant);
   }
 
+  
+
   onSelect(restaurant: Restaurant): void{
     this.selectedRestaurant = restaurant;
   }

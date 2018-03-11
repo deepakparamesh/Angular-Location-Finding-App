@@ -1,0 +1,56 @@
+<section id="restaurant-section" class="py-3">
+  <div class="container">
+
+    <div>
+      <h3 class="text-center">Showing Events in Malta</h3>
+    </div>
+    
+    <div class="row pt-2">
+      
+      <div class="col-lg-3">
+        <div class="card">
+            <div class="card-header">
+              <h5>Event Details</h5>
+              <small>Click on the list know the Details</small>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">{{selectedEvent.Title}}</h6>
+              <p>{{selectedEvent.EventDate}}</p>
+              <p>{{selectedEvent.Location}}</p>
+              <p>{{selectedEvent.Venue}}</p>
+              <p>{{selectedEvent.EventType}}</p>
+            </div>
+          </div>
+      </div>
+      <div class=" col-lg-9">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="list-tab" data-toggle="tab" routerLink="/events"  role="tab" aria-controls="events" aria-selected="true">List View</a>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <table class="table table-responsive" style="max-height:350px">
+                  <thead>
+                    <tr>
+                      <th scope="col">Event Title</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Location</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let event of events" (click)="onSelect(event)">
+                      <td>{{event.Title}}</td>
+                      <td>{{event.EventDate}}</td>
+                      <td>{{event.Location}}</td>
+                    </tr>
+                  </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -5,16 +5,19 @@ import { AppComponent } from './app.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { RestaurantMapComponent } from './restaurant-map/restaurant-map.component';
-import { RestaurantService } from './restaurant.service'
+import { RestaurantService } from './restaurant.service';
+import { EventsService } from './events.service';
 
 import { AgmCoreModule } from '@agm/core';
+import { EventsComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RestaurantComponent,
-    RestaurantMapComponent
-  ],
+    RestaurantMapComponent,
+    EventsComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,7 +26,8 @@ import { AgmCoreModule } from '@agm/core';
     })
   ],
   providers: [
-    RestaurantService
+    RestaurantService,
+    EventsService
   ],
   bootstrap: [AppComponent]
 })

@@ -8,13 +8,14 @@ import { RESTAURANTS } from './mock-restaurants';
 @Injectable()
 export class RestaurantService {
 
- restaurants : Restaurant[];
-
-// restaurtants = []
   constructor() { }
 
   getRestaurants(): Observable<Restaurant[]>{
     return of(RESTAURANTS);
+  }
+
+  getLatLan(): Restaurant[]{
+    return RESTAURANTS;
   }
 
 }
